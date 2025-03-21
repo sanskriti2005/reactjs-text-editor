@@ -1,8 +1,13 @@
 import React from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+// import { Button } from "@chakra-ui/react";
+import Document from "@tiptap/extension-document";
+import Italic from "@tiptap/extension-italic";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
 
-const extensions = [StarterKit];
+const extensions = [StarterKit, Document, Italic, Paragraph, Text];
 
 const content = ``;
 
@@ -28,12 +33,11 @@ const TipTap = () => {
         </button>
         {/* Italic */}
         <button
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          disabled={!editor.can().chain().focus().toggleItalic().run()}
-          className={editor.isActive("italic") ? "is-active" : ""}
-        >
-          Italic
-        </button>
+            onClick={() => editor.chain().focus().toggleItalic().run()}
+            className={editor.isActive('italic') ? 'is-active' : ''}
+          >
+            Italic
+          </button>
         {/* Strike */}
         <button
           onClick={() => editor.chain().focus().toggleStrike().run()}
